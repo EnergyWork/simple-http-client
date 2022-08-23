@@ -2,6 +2,14 @@
 
 Simple wrapper aroung <a href="https://chandan-02.github.io/anime-facts-rest-api/">anime-facts-rest-api</a>
 
+## Client methods
+
+```txt
+GetAnimeList : returns a list of available anime
+GetAnimeFacts : returns a list of facts about anime
+GetSpecificFact : returns a fact by ID
+```
+
 ## Example
 
 ```Go
