@@ -8,12 +8,16 @@ import (
 	client "github.com/energywork/simple-http-client/anime_facts"
 )
 
+const (
+	timeout = 30 * time.Second
+)
+
 func init() {
 	rand.Seed(time.Now().Unix())
 }
 
 func main() {
-	client, err := client.NewClient(30 * time.Second)
+	client, err := client.NewClient(timeout)
 	if err != nil {
 		log.Fatal(err)
 	}

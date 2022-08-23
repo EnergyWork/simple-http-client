@@ -1,3 +1,4 @@
-# simple-http-client
-elementary http client
+## simple-http-client
+Elementary http client
+
 work with anime-facts-rest-api
