@@ -1,7 +1,9 @@
 package anime_facts
 
 import (
+	"encoding/json"
 	"errors"
+	"io"
 	"net/http"
 	"os"
 	"time"
@@ -26,4 +28,23 @@ func NewClient(timeout time.Duration) (*Client, error) {
 			},
 		},
 	}, nil
+}
+
+func (c *Client) GetRequest(url string, r interface{}) error {
+	resp, err := c.client.Get(url)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return err
+	}
+
+	if err := json.Unmarshal(body, &r); err != nil {
+		return err
+	}
+
+	return nil
 }
